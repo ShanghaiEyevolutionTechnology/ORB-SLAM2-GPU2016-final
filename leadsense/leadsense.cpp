@@ -141,7 +141,7 @@ int main(int argc, char **argv)
 				// Read left and right images from file
 				imLeft = cv_image(cv::Rect(0,0,width, height));
 				imRight = cv_image(cv::Rect(width,0,width, height));
-				double tframe = camera.getCurrentFrameTimeCode();
+				double tframe = (double)camera.getCurrentFrameTimeCode() / 1000000000;
 
 				// Pass the images to the SLAM system
 				SLAM.TrackStereo(imLeft,imRight,tframe); 
